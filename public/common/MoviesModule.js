@@ -74,6 +74,7 @@ var MoviesModule = (function () {
             buttonDelete.innerText = "Delete";
             buttonDelete.id = currentMovie.id;
             buttonDelete.classList.add("delete-btn");
+            row.classList.add("row");
             
 
             imgTd.appendChild(movieImg);
@@ -91,10 +92,21 @@ var MoviesModule = (function () {
         }
 
     }
+    
+    function addMovieToLocalStorage(movie){
+        var moviesInJSON = localStorage.getItem("movies");
+        var moviesInJS = JSON.parse(moviesInJSON);
+        var newMovies = moviesInJS.concat(movie);
+        var newMoviesInJSON = JSON.stringify(newMovies);
+        localStorage.setItem("movies", newMoviesInJSON);
+        location.replace("../list-of-movies/list.html");
+
+    }
 
     return {
         displayMovies: displayMovies, 
-        deleteMovie: deleteMovie
+        deleteMovie: deleteMovie,
+        addMovieToLocalStorage: addMovieToLocalStorage
     }
 
 })()
