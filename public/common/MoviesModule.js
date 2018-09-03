@@ -94,7 +94,7 @@ var MoviesModule = (function () {
     }
     
     function addMovieToLocalStorage(movie){
-        var moviesInJSON = localStorage.getItem("movies");
+        var moviesInJSON = localStorage.getItem("movies") || "[]";
         var moviesInJS = JSON.parse(moviesInJSON);
         var newMovies = moviesInJS.concat(movie);
         var newMoviesInJSON = JSON.stringify(newMovies);

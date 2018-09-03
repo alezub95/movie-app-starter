@@ -7,6 +7,7 @@
             e.preventDefault();
             var formElements = e.target.elements;
             var newMovie = { 
+                id: (new Date()).getTime(),
                 title: formElements["title"].value,
                 image: formElements["image"].value,
                 genre: formElements["genre"].value,
